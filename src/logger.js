@@ -6,7 +6,7 @@ export class MMLogger {
 
   constructor(config) {
     this.transports = [];
-    if (config.winston.file !== undefined) {
+    if (config.winston.file !== 'false') {
       this.transports.push(new (winston.transports.File)({ filename: config.winston.file }));
     }
 

@@ -67,7 +67,7 @@ describe('/src/logger.js', () => {
         });
 
         it('should not add file transport', () => {
-          config.winston.file = undefined;
+          config.winston.file = 'false';
           loggerTest = new MMLogger(config);
           return expect(loggerTest.get().transports.file).to.not.exist;
         });
