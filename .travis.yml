@@ -34,7 +34,8 @@ after_script:
 notifications:
   webhooks:
     urls:
-      - $GITTER_IM_URL
+      secure: "jYJs0uvy8WXSZXrxcXa7CtKGa6vfXfvgP3s91NoL9dwNDBs2KhJmU6D+6YEVIRzxzJYQt65S2krKhCuzdYpmAgoEeULjz1UjSp5rrZgeyzjs3zx1PKyEXVEFDtu9AL4Ey0dOb6SMpT3joAP3GxOoRMsPK7f9MFYoWzaReyRSFDqYmtW81EsvhbETW8Y8fE+1WZjzm46bSMAfcgvj2T4qxUWkdQVS5cXlC1sn3imzKyU4OJ77F5pJf8WRwyxWE4AlCSvqmUkCXVlzaDZrOQ6pn3Hlb0MTCHqq1F/dlXnaXwXLDyfZUv299qSsf+hzfNwTzKc4G7V3OYgUJ9ihq25HXbh7K6WYfSQheCpLbloa2uMS2fl9QsxmuJKI7ecGNcaqU6dW3DnaxGw89u8+KVr9F+pifAex6d7dpv2VUG637x6qA0PJ6sBFbUBycda57EUdNCwaGSg6W46uZV6IL8FNJbHtlXEiW7+o+/Ednh2GjNmHNmeyzQpjA4QoxK3Xsv2B10CXlW5/3Mw0xYWpMdc8dqJzVb8Aj6kUeJiLnA/cVpwv24WnGq05ZG9McmyWR5rYLfpH1iQZzpKsgGN6R0pBzJ2FYnaREITlMHZzr3lZ5/SWxyBmkMYCfe1QZTOFmSBF0bDbXSdGAbCnsUFoDjf2Pc8g0utwd90uMtpjXp+Lh1E="
+
     on_success: change  # options: [always|never|change] default: always
     on_failure: always  # options: [always|never|change] default: always
     on_start: never     # options: [always|never|change] default: always
