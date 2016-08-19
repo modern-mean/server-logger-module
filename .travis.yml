@@ -26,7 +26,7 @@ addons:
 notifications:
   webhooks:
     urls:
-      - https://webhooks.gitter.im/e/6ac2b4738f61a5d0d100
+      secure: "poqVyB2wTisUygYPPC9/uvk69j90zKpja8sJVuLgh73CPuaNOp0rI+Myk7yFpIE7TEutpWaFDVZOtW2vfB/HagUlxrhy86UtbW3DH6WK7Yc3tY3BSnmwiyiVy5Pg8giEx9AxtoylnoHnEW7jAXPalhrSlzlqabU/Ztu8H2E/qdmlBi7IGaHHnp2la/3HCwIFQfDjBepHBWExxUisnRaXqRoNMieMiCpWcz93qNbrKQpA87EIU8p5NBEz17deDwpKN59/zx1xXaB90z1MwAC5T3f0OXVTkTgBqlRUwrJrGm4AK6qMyF+hyBc83KmcwrVF3xWrnurSHrqFTBpwtAvCxQmDzA/Wx35fZe9veNTtTs5y3u0d8fipDp5/rKivb0nYB1XHmBzkRqmCzzW6536UnLfRplCoYuELyYooECZcPyXnbukC4ZwL+JRwyEEVH0TM8UfSiaRI1WUQlawwgshz/kE6/aWr3CJelkGXo+CZIkBZvOtfC9A8Lai0UfxV4k/RVJPnO//BGNdOuGUp6hLDWekqC/1CIwodC//XS+bcDT1F1JsZVYcnz8NujSU/Gz6jArwqd5qSp6zbwLJEGH4pR5deHAbMbvADW9fOOQg4ioMiItBMY87pd53rDk0fnWAC180eQh2UKibfMCqPdEb6RGn/g0Zbkbh8dDWBw0i7LEM="
     on_success: always  # options: [always|never|change] default: always
     on_failure: always  # options: [always|never|change] default: always
     on_start: always     # options: [always|never|change] default: always
