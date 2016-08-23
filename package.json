@@ -4,7 +4,6 @@
   "description": "Logging module for Modern Mean",
   "main": "index.js",
   "scripts": {
-    "build": "gulp",
     "coverage": "gulp test:coverage",
     "test": "gulp test",
     "build": "gulp",
