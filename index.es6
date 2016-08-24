@@ -1,1 +1,1 @@
-export * from './dist/logger';
+export * from './dist/module';
