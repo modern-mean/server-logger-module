@@ -10,7 +10,6 @@ Thumbs.db
 node_modules/
 bower_components/
 .idea/
-dist/
 
 # Modern-MEAN app and assets
 # ======================

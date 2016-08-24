@@ -6,17 +6,14 @@ import { merge } from 'lodash';
 export class MMLogger {
 
   constructor(config) {
-    this.config = config || {};
-    this.defaultConfig = {
+
+    this.config = config || {
       winston: {
         file: 'false',
         console: 'true',
         level: 'info'
       }
-    }
-
-    this.config = merge(this.defaultConfig, this.config);
-    console.log(this.config);
+    };
 
     this.transports = [];
 
