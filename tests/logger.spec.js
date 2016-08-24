@@ -1,6 +1,6 @@
 'use strict';
 
-import { MMLogger } from '../src/logger';
+import { MMLogger } from '../src/logger.es6';
 import winston from 'winston';
 
 
