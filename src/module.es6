@@ -10,25 +10,26 @@ export class MMLogger {
     this.defaultConfig = {
       winston: {
         file: 'false',
-        console: true,
+        console: 'true',
         level: 'info'
       }
     }
 
     this.config = merge(this.defaultConfig, this.config);
+    console.log(this.config);
 
     this.transports = [];
 
-    if (config.winston.file !== 'false') {
-      this.transports.push(new (winston.transports.File)({ filename: config.winston.file }));
+    if (this.config.winston.file !== 'false') {
+      this.transports.push(new (winston.transports.File)({ filename: this.config.winston.file }));
     }
 
-    if (config.winston.console === 'true') {
+    if (this.config.winston.console === 'true') {
       this.transports.push(new (winston.transports.Console)());
     }
 
     this.logger = new (winston.Logger)({
-      level: config.winston.level,
+      level: this.config.winston.level,
       transports: this.transports
     });
 
