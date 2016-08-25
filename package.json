@@ -1,6 +1,6 @@
 {
   "name": "@modern-mean/server-logger-module",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Logging module for Modern Mean",
   "main": "index.js",
   "engines": {
