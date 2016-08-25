@@ -1,19 +1,11 @@
-'use strict';
-
 import winston from 'winston';
 import { merge } from 'lodash';
+import defaultConfig from './config';
 
 export class MMLogger {
 
   constructor(config) {
-
-    this.config = config || {
-      winston: {
-        file: 'false',
-        console: 'true',
-        level: 'info'
-      }
-    };
+    this.config = config || defaultConfig;
 
     this.transports = [];
 
@@ -34,6 +26,10 @@ export class MMLogger {
 
   get() {
     return this.logger;
+  }
+
+  getConfig() {
+    return this.config;
   }
 
 }

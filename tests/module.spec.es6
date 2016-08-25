@@ -1,5 +1,3 @@
-'use strict';
-
 import { MMLogger } from '../src/module.es6';
 import winston from 'winston';
 
