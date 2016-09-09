@@ -1,0 +1,20 @@
+{
+  "generator-github-create": {
+    "readme": {
+      "title": "server-logger-module",
+      "description": "Modern Mean module for server logging",
+      "usebadges": true,
+      "badges": [
+        "travis",
+        "coveralls",
+        "david",
+        "davidDev",
+        "gitter",
+        "npm"
+      ],
+      "profile": "modern-mean",
+      "repository": "server-logger-module",
+      "scoped": true
+    }
+  }
+}
