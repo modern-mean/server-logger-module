@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MMLogger = undefined;
+exports.LoggerModule = undefined;
 
 var _winston = require('winston');
 
@@ -17,7 +17,7 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class MMLogger {
+class LoggerModule {
 
   constructor(config) {
     this.config = config || _config2.default;
@@ -42,9 +42,5 @@ class MMLogger {
     return this.logger;
   }
 
-  getConfig() {
-    return this.config;
-  }
-
 }
-exports.MMLogger = MMLogger;
+exports.LoggerModule = LoggerModule;

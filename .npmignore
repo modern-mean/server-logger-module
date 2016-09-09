@@ -3,6 +3,4 @@
 .eslintrc
 .gitignore
 .travis.yml
-gulpfile.babel.js
-index.es6
 src/

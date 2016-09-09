@@ -2,7 +2,7 @@ import winston from 'winston';
 import { merge } from 'lodash';
 import defaultConfig from './config';
 
-export class MMLogger {
+export class LoggerModule {
 
   constructor(config) {
     this.config = config || defaultConfig;
@@ -26,10 +26,6 @@ export class MMLogger {
 
   get() {
     return this.logger;
-  }
-
-  getConfig() {
-    return this.config;
   }
 
 }

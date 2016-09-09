@@ -1,4 +1,4 @@
-import { MMLogger } from '../src/module.es6';
+import { LoggerModule } from '../src/module';
 import winston from 'winston';
 
 
@@ -15,7 +15,7 @@ describe('/src/logger.js', () => {
         file: './logs/all.log',
         console: 'true'
       }
-    }
+    };
     return sandbox = sinon.sandbox.create();
   });
 
@@ -26,7 +26,7 @@ describe('/src/logger.js', () => {
   describe('constructor', () => {
 
     it('should be an object', () => {
-      moduleTest = new MMLogger(config);
+      moduleTest = new LoggerModule(config);
       return moduleTest.should.be.an('object');
     });
 
@@ -35,7 +35,7 @@ describe('/src/logger.js', () => {
       describe('default', () => {
 
         it('should set default if no config', () => {
-          moduleTest = new MMLogger();
+          moduleTest = new LoggerModule();
           moduleTest.get().transports.console.should.be.an('object');
           expect(moduleTest.get().transports.file).to.not.exist;
           return moduleTest.get().level.should.be.equal('info');
@@ -47,7 +47,7 @@ describe('/src/logger.js', () => {
 
         it('should set level based on config', () => {
           config.winston.level = 'silly';
-          moduleTest = new MMLogger(config);
+          moduleTest = new LoggerModule(config);
           return moduleTest.get().level.should.be.equal('silly');
         });
 
@@ -56,13 +56,13 @@ describe('/src/logger.js', () => {
       describe('console', () => {
 
         it('should add console transport', () => {
-          moduleTest = new MMLogger(config);
+          moduleTest = new LoggerModule(config);
           return moduleTest.get().transports.console.should.be.an('object');
         });
 
         it('should not add console transport', () => {
           config.winston.console = 'false';
-          moduleTest = new MMLogger(config);
+          moduleTest = new LoggerModule(config);
           return expect(moduleTest.get().transports.console).to.not.exist;
         });
 
@@ -71,13 +71,13 @@ describe('/src/logger.js', () => {
       describe('file', () => {
 
         it('should add file transport', () => {
-          moduleTest = new MMLogger(config);
+          moduleTest = new LoggerModule(config);
           return moduleTest.get().transports.file.should.be.an('object');
         });
 
         it('should not add file transport', () => {
           config.winston.file = 'false';
-          moduleTest = new MMLogger(config);
+          moduleTest = new LoggerModule(config);
           return expect(moduleTest.get().transports.file).to.not.exist;
         });
 
@@ -90,7 +90,7 @@ describe('/src/logger.js', () => {
   describe('get', () => {
 
     beforeEach(() => {
-      moduleTest = new MMLogger(config);
+      moduleTest = new LoggerModule(config);
     });
 
     it('should return winston object', () => {
