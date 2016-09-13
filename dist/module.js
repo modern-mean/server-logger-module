@@ -9,7 +9,9 @@ var _winston = require('winston');
 
 var _winston2 = _interopRequireDefault(_winston);
 
-var _lodash = require('lodash');
+var _lodash = require('lodash.defaults');
+
+var _lodash2 = _interopRequireDefault(_lodash);
 
 var _config = require('./config');
 
@@ -20,7 +22,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 class LoggerModule {
 
   constructor(config) {
-    this.config = config || _config2.default;
+    this.config = (0, _lodash2.default)(config, (0, _config2.default)());
 
     this.transports = [];
 
