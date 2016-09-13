@@ -1,11 +1,11 @@
 import winston from 'winston';
-import { merge } from 'lodash';
+import defaults from 'lodash.defaults';
 import defaultConfig from './config';
 
 export class LoggerModule {
 
   constructor(config) {
-    this.config = config || defaultConfig;
+    this.config = defaults(config, defaultConfig());
 
     this.transports = [];
 

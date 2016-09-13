@@ -6,7 +6,7 @@ let sandbox,
   moduleTest,
   config;
 
-describe('/src/logger.js', () => {
+describe('/src/module.js', () => {
 
   beforeEach(() => {
     config = {
