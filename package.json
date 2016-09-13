@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/modern-mean/server-logger-module#readme",
   "dependencies": {
-    "lodash.defaults": "^4.2.0",
+    "lodash.defaultsdeep": "^4.6.0",
     "winston": "^2.2.0"
   },
   "devDependencies": {

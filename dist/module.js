@@ -9,7 +9,7 @@ var _winston = require('winston');
 
 var _winston2 = _interopRequireDefault(_winston);
 
-var _lodash = require('lodash.defaults');
+var _lodash = require('lodash.defaultsdeep');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 

@@ -1,5 +1,5 @@
 import winston from 'winston';
-import defaults from 'lodash.defaults';
+import defaults from 'lodash.defaultsdeep';
 import defaultConfig from './config';
 
 export class LoggerModule {
