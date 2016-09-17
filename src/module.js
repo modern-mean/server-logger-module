@@ -1,24 +1,30 @@
 import winston from 'winston';
-import defaults from 'lodash.defaultsdeep';
 import defaultConfig from './config';
+import { ConfigModule } from '@modern-mean/server-config-module';
 
 export class LoggerModule {
 
   constructor(config) {
-    this.config = defaults(config, defaultConfig());
+
+    if (config instanceof ConfigModule) {
+      config.defaults({ LoggerModule: defaultConfig() });
+      this.config = config.get().LoggerModule;
+    } else {
+      this.config = defaultConfig();
+    }
 
     this.transports = [];
 
-    if (this.config.winston.file !== 'false') {
-      this.transports.push(new (winston.transports.File)({ filename: this.config.winston.file }));
+    if (this.config.file) {
+      this.transports.push(new (winston.transports.File)({ filename: this.config.file }));
     }
 
-    if (this.config.winston.console === 'true') {
+    if (this.config.console) {
       this.transports.push(new (winston.transports.Console)());
     }
 
     this.logger = new (winston.Logger)({
-      level: this.config.winston.level,
+      level: this.config.level,
       transports: this.transports
     });
 

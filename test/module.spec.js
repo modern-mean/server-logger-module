@@ -1,21 +1,23 @@
 import { LoggerModule } from '../src/module';
+import { ConfigModule } from '@modern-mean/server-config-module';
+import defaultConfig from '../src/config';
 import winston from 'winston';
 
 
 let sandbox,
   moduleTest,
+  configModule,
   config;
 
 describe('/src/module.js', () => {
 
   beforeEach(() => {
     config = {
-      winston: {
-        level:  'info', //{ error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
-        file: './logs/all.log',
-        console: 'true'
-      }
+      level:  'info', //{ error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
+      file: './logs/all.log',
+      console: 'true'
     };
+    configModule = new ConfigModule({ LoggerModule: config });
     return sandbox = sinon.sandbox.create();
   });
 
@@ -26,7 +28,7 @@ describe('/src/module.js', () => {
   describe('constructor', () => {
 
     it('should be an object', () => {
-      moduleTest = new LoggerModule(config);
+      moduleTest = new LoggerModule();
       return moduleTest.should.be.an('object');
     });
 
@@ -34,11 +36,17 @@ describe('/src/module.js', () => {
 
       describe('default', () => {
 
-        it('should set default if no config', () => {
+        it('should set default config if no config', () => {
           moduleTest = new LoggerModule();
           moduleTest.get().transports.console.should.be.an('object');
           expect(moduleTest.get().transports.file).to.not.exist;
           return moduleTest.get().level.should.be.equal('info');
+        });
+
+        it('should call defaults if passed ConfigModule', () => {
+          let spy = sandbox.spy(configModule, 'defaults');
+          moduleTest = new LoggerModule(configModule);
+          return spy.should.have.been.calledWith({ LoggerModule: defaultConfig() });
         });
 
       });
@@ -46,8 +54,8 @@ describe('/src/module.js', () => {
       describe('level', () => {
 
         it('should set level based on config', () => {
-          config.winston.level = 'silly';
-          moduleTest = new LoggerModule(config);
+          configModule.merge({ LoggerModule: { level: 'silly' } });
+          moduleTest = new LoggerModule(configModule);
           return moduleTest.get().level.should.be.equal('silly');
         });
 
@@ -56,13 +64,13 @@ describe('/src/module.js', () => {
       describe('console', () => {
 
         it('should add console transport', () => {
-          moduleTest = new LoggerModule(config);
+          moduleTest = new LoggerModule(configModule);
           return moduleTest.get().transports.console.should.be.an('object');
         });
 
         it('should not add console transport', () => {
-          config.winston.console = 'false';
-          moduleTest = new LoggerModule(config);
+          configModule.merge({ LoggerModule: { console: false } });
+          moduleTest = new LoggerModule(configModule);
           return expect(moduleTest.get().transports.console).to.not.exist;
         });
 
@@ -71,12 +79,12 @@ describe('/src/module.js', () => {
       describe('file', () => {
 
         it('should add file transport', () => {
-          moduleTest = new LoggerModule(config);
+          moduleTest = new LoggerModule(configModule);
           return moduleTest.get().transports.file.should.be.an('object');
         });
 
         it('should not add file transport', () => {
-          config.winston.file = 'false';
+          configModule.merge({ LoggerModule: { file: false } });
           moduleTest = new LoggerModule(config);
           return expect(moduleTest.get().transports.file).to.not.exist;
         });
